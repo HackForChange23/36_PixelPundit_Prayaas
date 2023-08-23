@@ -4,6 +4,7 @@ import AppBar from "@/components/AppBar";
 import "../profile/profile.css";
 import { AiFillFileText } from "react-icons/ai";
 import { Select, Option } from "@material-tailwind/react";
+import Navbar from '@/components/Navbar';
 
 const profile = () => {
 
@@ -54,6 +55,7 @@ const profile = () => {
           </div>
         </div>
       </div>
+      <Navbar></Navbar>
     </div>
   );
 };
