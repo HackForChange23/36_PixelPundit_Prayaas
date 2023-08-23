@@ -14,32 +14,46 @@ import Link from "next/link";
 
 
 const landingpage = () => {
-    return (
-        <div className=" bg-white min-h-screen">
-            <AppBar />
-            <div className="static-carousel">
-      <div className="carousel-item">
-        <Image src={scheme1}></Image>
-        <h3>Item 1</h3>
-        <p>Description for Item 1</p>
-      </div>
-      <div className="carousel-item">
-        <Image src={scheme2}></Image>
-        <h3>Item 2</h3>
-        <p>Description for Item 2</p>
-      </div>
-      <div className="carousel-item">
-        <img src={scheme3} alt="Item 2" />
-        <h3>Item 2</h3>
-        <p>Description for Item 2</p>
-      </div>
-      <div className="carousel-item">
-        <img src={scheme4} alt="Item 2" />
-        <h3>Item 2</h3>
-        <p>Description for Item 2</p>
-      </div>
-      {/* Add more carousel items as needed */}
-    </div>
+  return (
+    <div className=" bg-white min-h-screen">
+      <AppBar />
+      <div className="static-carousel">
+        <div className="carousel-item">
+          <Image src={scheme1}></Image>
+          <h3>Item 1</h3>
+          <p>Description for Item 1</p>
+        </div>
+        <div className="carousel-item">
+          <Image src={scheme2}></Image>
+          <h3>Item 2</h3>
+          <p>Description for Item 2</p>
+        </div>
+        <div className="carousel-item">
+          <img src={scheme3} alt="Item 2" />
+          <h3>Item 2</h3>
+          <p>Description for Item 2</p>
+        </div>
+        <div className="carousel-item">
+          <img src={scheme4} alt="Item 2" />
+          <h3>Item 2</h3>
+          <p>Description for Item 2</p>
+        </div>
+        {/* Add more carousel items as needed */}
+      </div><div style={{maxHeight: '370px', overflowY: 'auto'}}>
+            <Link href={'/'}>
+            <CenterCont>
+                <div className="w-full justify-center bg-white flex align-middle mt-2">
+                    <div className="w-[75%] h-20 flex card1 verify justify-center align-middle font text-2xl text-black font-titleFont"
+                    style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+
+                    
+                    <h1>FPO</h1>
+                      
+                    </div>
+                </div>
+            </CenterCont>
+            </Link>
+            <Link href={'/microcreditregister'}>
             <CenterCont>
                 <div className="w-full justify-center bg-white flex align-middle mt-2">
                     <div className="w-[75%] h-20 flex card2 verify justify-center align-middle font text-2xl text-black font-titleFont"

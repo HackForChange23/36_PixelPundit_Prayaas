@@ -56,11 +56,12 @@ const register = () => {
   };
 
   const sendData = () => {
+    console.log(members[0]);
     const totalValue = calculateTotalValue();
-    const dataToSend = { members, totalValue,req };
+    const dataToSend = { farmer1:members[0] , farmer2:members[1] ,farmer3:members[2], total_grant:totalValue,fpo_prayasId:"12454",requirement:req };
     // console.log(dataToSend);
     axios
-      .post("YOUR_API_ENDPOINT", dataToSend)
+      .post("http://localhost:5000/api/contract/post", dataToSend)
       .then((response) => {
         console.log("Data sent successfully:", response.data);
       })
