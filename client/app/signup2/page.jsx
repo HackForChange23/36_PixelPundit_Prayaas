@@ -4,6 +4,7 @@ import AppBar from "@/components/AppBar";
 import "../signup2/Details.css";
 import { AiFillFileText } from "react-icons/ai";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
+import { RiLockPasswordLine } from "react-icons/ri";
 import { BiPhone } from "react-icons/bi";
 import { Select, Option } from "@material-tailwind/react";
 import {
@@ -12,11 +13,54 @@ import {
   BsFillPersonVcardFill,
 } from "react-icons/bs";
 import CenterCont from "@/components/CenterCont";
+import axios from 'axios';
+
 const Details = () => {
+  const [Pan, setPan] = useState("");
+  const [pin, setPin] = useState("");
+  // const [gst, setGst] = useState("");
+  const [address1, setAddress1] = useState("");
+  const [address2, setAddress2] = useState("");
+  const [pincode, setPincode] = useState("");
+  const [state, setState] = useState("");
+
+
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
+  };
+
+  const handleClick = async() => {
+
+
+    const options = {
+      method: 'POST',
+      url: 'https://pan-card-verification1.p.rapidapi.com/v3/tasks/sync/verify_with_source/ind_pan',
+      headers: {
+        'content-type': 'application/json',
+        'X-RapidAPI-Key': 'd6ff027c08msh8d7ea36338ec77ep13de6ejsncf1458578c19',
+        'X-RapidAPI-Host': 'pan-card-verification1.p.rapidapi.com'
+      },
+      data: {
+        task_id: '74f4c926-250c-43ca-9c53-453e87ceacd1',
+        group_id: '8e16424a-58fc-4ba4-ab20-5bc8e7c3c41e',
+        data: {
+          id_number: Pan,
+        }
+      }
+    };
+
+    try {
+      const response = await axios.request(options);
+      if(response.status == "completed"){
+        const res = await axios.post("http://localhost:5000/api/register", {
+        
+      })
+    }
+    } catch (error) {
+      console.error(error);
+    }
   };
   return (
     <div className=" bg-gradientbg min-h-screen">
@@ -99,25 +143,29 @@ const Details = () => {
               type="text"
               id="input-group-1"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5"
-              placeholder="Aadhaar Card"
+              placeholder="Pan Card"
+              value={Pan}
+              onChange={(e) => setPan(e.target.value)}
             />
           </div>
         </CenterCont>
         <CenterCont>
           <div className="relative mb-4 w-[75%]">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
-              <BsFillTelephoneFill className="text-black" />
+              <RiLockPasswordLine className="text-black" />
             </div>
             <input
               type="text"
               id="input-group-1"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5"
-              placeholder="Phone Number"
+              placeholder="Set PIN"
+              value={pin}
+              onChange={(e) => setPin(e.target.value)}
             />
           </div>
         </CenterCont>
 
-        <CenterCont>
+        {/* <CenterCont>
           <div className="relative mb-4 w-[75%]">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3.5">
               <BsFillPersonVcardFill className="text-black" />
@@ -127,9 +175,11 @@ const Details = () => {
               id="input-group-1"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5"
               placeholder="GST Number"
+              value={gst}
+              onChange={(e) => setGst(e.target.value)}
             />
           </div>
-        </CenterCont>
+        </CenterCont> */}
         {/* <CenterCont>
           <div className="relative mb-6 w-[75%]">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
@@ -153,7 +203,7 @@ const Details = () => {
         <CenterCont>
           <div className="w-[75%]">
             <label
-              for="first_name"
+              htmlFor="first_name"
               className="block mb-[1px] text-xs font-medium text-gray-900"
             >
               Flat, House no., Building, Company, Apartment
@@ -164,6 +214,8 @@ const Details = () => {
                 id="input-group-1"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5"
                 placeholder=""
+                value={address1}
+                onChange={(e) => setAddress1(e.target.value)}
               />
             </div>
           </div>
@@ -173,7 +225,7 @@ const Details = () => {
           <div className="w-[75%]">
             <CenterCont>
               <label
-                for="first_name"
+                htmlFor="first_name"
                 className="block mb-[1px] text-xs font-medium text-gray-900"
               >
                 Area, Street, Sector, Village
@@ -186,6 +238,8 @@ const Details = () => {
                 id="input-group-1"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5"
                 placeholder=""
+                value={address2}
+                onChange={(e) => setAddress2(e.target.value)}
               />
             </div>
           </div>
@@ -194,7 +248,7 @@ const Details = () => {
         <div className="flex justify-center gap-10">
           <div className="w-[35%]">
             <label
-              for="first_name"
+              htmlFor="first_name"
               className="block mb-[1px] text-xs font-medium text-gray-900"
             >
               Pincode
@@ -205,13 +259,15 @@ const Details = () => {
                 id="input-group-1"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5"
                 placeholder=""
+                value={pincode}
+                onChange={(e) => setPincode(e.target.value)}
               />
             </div>
           </div>
 
           <div className="w-[35%]">
             <label
-              for="first_name"
+              htmlFor="first_name"
               className="block mb-[1px] text-xs font-medium text-gray-900"
             >
               States
@@ -220,6 +276,8 @@ const Details = () => {
             <Select
               color="blue"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg h-10 flex items-center justify-center"
+              value={state}
+              onChange={(e) => setState(e.target.value)}
             >
               <Option>Maharashtra</Option>
               <Option>Karnataka</Option>
@@ -235,6 +293,7 @@ const Details = () => {
           <button
             type="button"
             className="bg-[#2B2A1E] h-10 rounded-2xl w-[75%] text-white"
+            onClick={handleClick}
           >
             Submit
           </button>

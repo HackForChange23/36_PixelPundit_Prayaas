@@ -136,3 +136,6 @@ position:absolute;
 bottom:70px;
 left:250px;
 }
+body{
+    overflow-y: hidden;
+}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .data_div{
     width: 500px;
     margin: 50px auto 20px auto;
@@ -38,4 +39,8 @@ font-size: 20px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
+=======
+body{
+    overflow-y: hidden;
+>>>>>>> d11107ca83b06eca3f69abc155869a2312a1bf34
 }

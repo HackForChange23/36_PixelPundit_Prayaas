@@ -41,7 +41,7 @@ const home = () => {
           <p className="mclhead">Micro-Credit Loan</p>
         </div>
         <div className="mpcard">
-          <Link href="/Applications">
+          <Link href="./MarketPlace_ContractFarming">
             <button type="button" className="viewdetail">
               View
             </button>

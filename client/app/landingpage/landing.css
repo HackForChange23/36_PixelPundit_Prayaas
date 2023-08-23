@@ -33,4 +33,6 @@
     max-width: 100%;
     height: auto;
   }
-  
+  body{
+    overflow-y: hidden;
+  }
