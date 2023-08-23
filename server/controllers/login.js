@@ -78,7 +78,7 @@ const registerController = async (req, res) => {
             if (password) {
                 const hashPassword = await bcrypt.hash(req.body.password, 10);
                 const user = new Farmer({
-                    contact_no, name, password: hashPassword, adhaar_no, email : email || "", address, role, pin_code, photoPath, id, zone, pan
+                    contact_no, name, password: hashPassword, pan, email : email || "", address, role, pin_code, photoPath, id, zone, pan
                 });
                 await user.save();
               }
@@ -94,7 +94,7 @@ const registerController = async (req, res) => {
             if (password) {
                 const hashPassword = await bcrypt.hash(req.body.password, 10);
                 const user = new Manager({
-                    contact_no, name, password: hashPassword, pan, email : email || "", address, role, pin_code, photoPath, id, adhaar_no
+                    contact_no, name, password: hashPassword, pan, email : email || "", address, role, pin_code, photoPath, id, pan
                 });
                 await user.save();
               }
