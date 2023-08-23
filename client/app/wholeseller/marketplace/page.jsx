@@ -9,10 +9,13 @@ import { BsSearch } from "react-icons/bs";
 import axios from "axios";
 import { url } from "../../utils";
 import { Circles } from "react-loader-spinner";
-
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 
 const marketplace = () => {
+
+    const router = useRouter();
   
   const [products, setProducts] = useState(false);
   const [reqURL, setreqURL] = useState(url);
@@ -21,7 +24,7 @@ const marketplace = () => {
   const getAllProducts = async () => {
     try {
 
-      const res = await axios.get(reqURL + "/getproduct");
+      const res = await axios.get(reqURL + "/getwholesellproducts");
       console.log(res.data.data)
       setProducts(res.data.data);
       
@@ -54,7 +57,7 @@ const marketplace = () => {
         <div className="h-10 justify-center flex align-middle">
           <div className="w-[75%] h-auto flex items-center justify-center align-middle text-black font-bodyFont text-sm border-black border-b-2">
             {" "}
-            Help us know you better
+            Market Place for Wholesellers
           </div>
         </div>
       </div>
@@ -82,14 +85,17 @@ const marketplace = () => {
             </button>
           </div>
         </form>
+
+        <div style={{marginTop: '5px'}}>Select Product you want to buy</div>
   
-        <div style={{height: '100vh', width: '100vw',marginTop: '20px', padding: '10px 15px 25px 15px', maxWidth: '400px', display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', height: 'auto', overflowY: 'auto', overflow: 'hidden'}}>
+        <div style={{height: '100vh', width: '100vw',marginTop: '20px', padding: '10px 15px 25px 15px', maxWidth: '400px', display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', maxHeight: 'calc(100vh - 50px)', overflowY: 'auto'}}>
           {
             products ?
      
             products.map((product, index) => (
+
               
-              <div style={{height: 'auto', width: '35%', backgroundImage: "linear-gradient(60deg, green, white)", minWidth: '150px', borderRadius: '10px', boxShadow: '0 0 15px #000', marginTop: '10px', display: 'flex', flexDirection: 'column'}} key={index}>
+              <div style={{height: 'auto', width: '35%', backgroundImage: "linear-gradient(60deg, green,white, white)", minWidth: '150px', borderRadius: '10px', boxShadow: '0 0 15px #000', marginTop: '10px', display: 'flex', flexDirection: 'column'}} key={index}>
                   <div style={{height: '150px'}}>
                   <img src="https://picsum.photos/200/300" alt="Not Found" style={{height: '150px', width: '100%'}} />
                   </div>
@@ -98,12 +104,16 @@ const marketplace = () => {
                   </div>
                   <div style={{display: 'flex', backgroundColor: 'linear-gradient(60deg, #56c474, #56c474, #56c474, #0c9933)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
                     <p style={{fontSize: '15px', margin: '10px 0px', textAlign: 'center'}}>Rs.{product.cost} / day</p>
-                    <span style={{display: 'block', height: '25px', width: '35px', borderRadius: '50%', backgroundColor: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                      <p style={{color: 'white'}}>{product.quantity}</p>
+                    <span style={{display: 'block', height: '25px', width: '90%', borderRadius: '10%', backgroundColor: 'lightblue', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                      <p style={{color: 'white'}}>Quantity : {product.minimumQuantity}</p>
                     </span>
-                    <p style={{color: 'lightblue', marginBottom: '10px'}}>Owner</p>
+                    <p style={{color: 'black', marginBottom: '10px'}}>{product.farmer}</p>
+
+
                     
                   </div>
+
+                  <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '10px 0'}}><button style={{width: '100px', backgroundColor: 'brown', color: 'white', borderRadius: '5px'}}>BUY</button></div>
               </div>
             ))
             :

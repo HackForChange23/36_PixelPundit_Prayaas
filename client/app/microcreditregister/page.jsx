@@ -69,9 +69,10 @@ const register = () => {
             </button>
           </CenterCont>
         </div>
+        <Navbar></Navbar>
       </div>
 
-      <Navbar></Navbar>
+      {/* <Navbar><Navbar> */}
 
     </>
   );
