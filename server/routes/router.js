@@ -29,7 +29,8 @@ router.post("/wholeseller/postproduct", upload.single('image'), wholeSeller.post
 router.post("/contract/post", contract.postContract);
 router.post("/contract/approvebyfpo", contract.approveFPO);
 router.post("/contract/approvebyservice", contract.approveServiceProvider);
-router.post("/otp",otpController.VerifyOtp);
+router.post("/otp",otpController.sendOtp);
+router.post("/otp/verify", otpController.verifyOtp);
 
 
 
