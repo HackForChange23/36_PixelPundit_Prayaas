@@ -3,6 +3,7 @@
 }
 
 body {
+  overflow-y: hidden;
   background: linear-gradient(180deg, #d4adfc 100%, #0c134f 100%);
 }
 .AppBar {

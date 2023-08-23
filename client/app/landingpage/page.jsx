@@ -10,7 +10,6 @@ import { scheme2, scheme3, scheme4 } from "../assets/assets";
 import Image from "next/image";
 import Link from "next/link";
 
-
 const landingpage = () => {
   return (
     <div className=" bg-white min-h-screen">
