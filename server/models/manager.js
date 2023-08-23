@@ -1,29 +1,8 @@
 const mongoose = require('mongoose');
 
-function generateRandomNumber() {
-  return Math.floor(Math.random() * 1000000);
-}
-
-function generateDynamicId(role) {
-  const prefix = '';
-  switch (role) {
-    case 'farmer':
-      prefix = 'FAM';
-      break;
-    case 'FPO manager':
-      prefix = 'FPM';
-      break;
-    case 'Service provider':
-      prefix = 'Spv';
-      break;
-    default:
-      throw new Error('Invalid role');
-  }
-  return `${prefix}${generateRandomNumber()}`;
-}
 
 
-const farmerSchema = new mongoose.Schema({
+const managerSchema = new mongoose.Schema({
   name: {
     type: String,
     required: false
@@ -73,15 +52,11 @@ const farmerSchema = new mongoose.Schema({
   photoPath: {
     type: String,
     required: false
-  },
-  zone: {
-    type: String,
-    required: [true, "Pincode is required"]
   }
 
 })
 
 
-const Farmer = mongoose.model('Farmer', farmerSchema);
+const Manager = mongoose.model('Manager', managerSchema);
 
-module.exports = Farmer;
+module.exports = Manager;
