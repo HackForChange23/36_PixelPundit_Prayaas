@@ -11,5 +11,9 @@ import home from "../assets/icons/home.png";
 import helper from "../assets/icons/helper.png";
 import alerts from "../assets/icons/alerts.png";
 import profile from "../assets/icons/profile.png";
-
-export{alerts,profile,helper,home,prayas,passwordlogo,namelogo,phonenumber,google,farmer, google_translate, googletxt, prayaas};
+import scheme1 from "../assets/images/scheme1.jpg";
+import scheme2 from "../assets/images/scheme2.jpg";
+import scheme3 from "../assets/images/scheme3.jpg";
+import scheme4 from "../assets/images/scheme4.jpg";
+import scheme5 from "../assets/images/scheme5.jpg";
+export{scheme1,scheme2,scheme3,scheme4,scheme5,alerts,profile,helper,home,prayas,passwordlogo,namelogo,phonenumber,google,farmer, google_translate, googletxt, prayaas};

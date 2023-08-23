@@ -232,13 +232,13 @@ const Details = () => {
         </div>
 
         <CenterCont>
-            <button
-              type="button"
-              className="bg-[#2B2A1E] h-10 rounded-2xl w-[75%] text-white"
-            >
-              Submit
-            </button>
-          </CenterCont>
+          <button
+            type="button"
+            className="bg-[#2B2A1E] h-10 rounded-2xl w-[75%] text-white"
+          >
+            Submit
+          </button>
+        </CenterCont>
       </div>
     </div>
   );

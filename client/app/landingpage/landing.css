@@ -1,0 +1,36 @@
+.card1{
+    background: linear-gradient(90deg, #F12711 0%, #F12811 0.01%, #F13412 9.90%, #F5AF19 100%);
+}
+.card2{
+    background: linear-gradient(270deg, #A8C0FF 0%, #A8C0FF 0.01%, #3F2B96 100%);
+
+}
+.card3{
+    background: linear-gradient(90deg, #00B09B 0%, #00B09B 0.01%, #96C93D 100%);
+}
+.card4{
+    background: linear-gradient(90deg, #007991 0%, #78FFD6 100%);
+}
+
+
+.static-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 20px;
+  }
+  
+  .carousel-item {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+  }
+  
+  .carousel-item img {
+    max-width: 100%;
+    height: auto;
+  }
+  
