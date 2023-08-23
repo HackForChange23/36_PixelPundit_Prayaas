@@ -1,0 +1,190 @@
+:root {
+  background: linear-gradient(180deg, #d4adfc 100%, #0c134f 100%);
+}
+
+body {
+  background: linear-gradient(180deg, #d4adfc 100%, #0c134f 100%);
+}
+.AppBar {
+  width: 100%;
+  height: 60px;
+  flex-shrink: 0;
+  background-color: #0c134f;
+}
+
+.profile {
+  position: relative;
+  top: 10px;
+  left: 100px;
+  width: 80%;
+  height: 190px;
+  flex-shrink: 0;
+  border-radius: 28px;
+  opacity: 0.7;
+  background: var(--dark-bg, #091522);
+  box-shadow: 0px -4px 16px 0px #000;
+}
+
+.profileimg {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 150px;
+  height: 140px;
+  flex-shrink: 0;
+  border-radius: 50px;
+  border: 1px solid #fff;
+  /* background:  lightgray 196.553px 206.505px / 100% 150.073% no-repeat; */
+  box-shadow: 0px -4px 16px 0px #000;
+}
+
+.NameFpoMan {
+  width: 226px;
+  height: 25px;
+  flex-shrink: 0;
+  position: absolute;
+  left: 180px;
+  top: 40px;
+}
+
+.textname {
+  color: #fff;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px; /* 60% */
+}
+
+.IDFpoMan {
+  width: 114px;
+  height: 31px;
+  flex-shrink: 0;
+}
+
+.textid {
+  position: absolute;
+  left: 180px;
+  top: 60px;
+
+  color: #fff;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 350;
+  line-height: normal;
+}
+
+.zone{
+    position: absolute;
+    right:20px;
+    display: flex;
+width: 200px;
+height: 35px;
+flex-direction: column;
+justify-content: center;
+flex-shrink: 0;
+
+}
+
+.zonetext{
+    color: #FFF;
+    text-align: right;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Salsa;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 60% */
+}
+
+.zonemember{
+    position: absolute;
+    right:20px;
+    top:55px;
+    display: flex;
+width: 200px;
+height: 35px;
+flex-direction: column;
+justify-content: center;
+flex-shrink: 0;
+
+}
+
+.membertext{
+    color: #FFF;
+    text-align: right;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Salsa;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 60% */
+}
+
+.viewmember{
+    position:absolute;
+    top:90px;
+    right:20px;
+    width: 130px;
+height: 30px;
+flex-shrink: 0;
+border-radius: 20px;
+background: #D4ADFC;
+}
+
+.container{
+    position:relative;
+    left:50px;
+    height:320px;
+    width:100%;
+}
+
+.mclcard{
+    position: absolute;
+    top:20px;
+    left:160px;
+    width: 300px;
+height: 300px;
+border-radius: 25px;
+background: #FFF;
+box-shadow: 0px 4px 100px 0px rgba(212, 173, 252, 0.25) inset;
+flex-shrink: 0;
+}
+
+.contractcard{
+    position: absolute;
+    top:100px;
+    left:160px;
+    width: 300px;
+height: 150px;
+border-radius: 25px;
+background: #FFF;
+box-shadow: 0px 4px 100px 0px rgba(212, 173, 252, 0.25) inset;
+flex-shrink: 0;
+
+}
+
+.viewdetail{
+    position:absolute;
+    bottom:30px;
+    left:80px;
+    width: 130px;
+height: 30px;
+flex-shrink: 0;
+border-radius: 20px;
+background: #D4ADFC;
+}
+
+.name,.quantity,.amount{
+    color: #0C134F;
+text-align: center;
+font-family: Salsa;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;    
+}
+
