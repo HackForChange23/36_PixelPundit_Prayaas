@@ -4,8 +4,10 @@ import Image from "next/image";
 import farmer from "../../assets/images/farmer.png";
 import { AiFillPhone } from "react-icons/ai";
 import axios from "axios";
+import { useRouter } from 'next/navigation';
 
 const Login = () => {
+  const router = useRouter();
   const [contact_no, setContactNo] = useState("");
   const [password, setPassword] = useState("");
 
@@ -17,7 +19,7 @@ const Login = () => {
       });
       console.log(res.data.data);
       clearInputFields();
-      window.location("/wholeseller/home");
+      router.push("/wholeseller/marketplace");
     } catch (error) {
       console.log(error);
     }
@@ -57,6 +59,7 @@ const Login = () => {
           />
         </div>
         <input
+        style={{color: '#000'}}
           className="border-gray-500 border rounded-xl p-2 placeholder-shown:border-gray-500 w-[80%] mt-4"
           placeholder="Password"
           value={password}

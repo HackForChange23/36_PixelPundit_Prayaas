@@ -5,8 +5,12 @@ import "./Details.css";
 import { BsFillTelephoneFill, BsFillPersonVcardFill } from "react-icons/bs";
 import CenterCont from "@/components/CenterCont";
 import axios from "axios";
+import { useRouter } from 'next/navigation';
+import {url} from '../../utils'
+
 
 const Details = () => {
+  const router = useRouter(null);
 
   const [contact_no, setContactNo] = useState("");
   const [gstin, setGstin] = useState("");
@@ -16,7 +20,6 @@ const Details = () => {
   const [address, setAddress] = useState("");
 
   const clearInputFields = () => {
-    setDropdownOpen(false);
     setContactNo("");
     setGstin("");
     setEmail("");
@@ -25,20 +28,25 @@ const Details = () => {
     setAddress("");
   };
 
-
-
   const registerWholeseller = async () => {
     try {
-        const res = await axios.post("http://localhost:5000/api/wholeseller/register", {
-          contact_no, gstin, email, name, password, address
-        })
-        console.log(res)
-        clearInputFields()
-        window.location("/wholeseller/login")
+      // const res = await axios.post(
+      //   `${url}wholeseller/register`,
+      //   {
+      //     contact_no,
+      //     gstin,
+      //     email,
+      //     name,
+      //     password,
+      //     address,
+      //   }
+      // );
+      // console.log(res);
+      clearInputFields();
+      router.push("/wholeseller/login"); // Use router.push() with lowercase "r"
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-    console.log(contact_no, gstin, email, name, password)
   };
 
   return (
@@ -171,10 +179,19 @@ const Details = () => {
         </CenterCont> */}
         <CenterCont>
             <button onClick={registerWholeseller} style={{zIndex: 1}}
-              type="button"
+              type="submit"
               className="bg-[#2B2A1E] h-10 rounded-2xl w-[75%] text-white"
             >
               Submit
+            </button>
+          </CenterCont>
+          <CenterCont>
+            <button style={{zIndex: 1, marginTop: '15px'}}
+              type="submit"
+              className="bg-[#2B2A1E] h-10 rounded-2xl w-[75%] text-white" 
+              onClick={()=>{registerWholeseller();}}
+            >
+              Go to Login
             </button>
           </CenterCont>
       </div>

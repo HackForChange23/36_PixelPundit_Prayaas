@@ -1,8 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
-const dotenv = require("dotenv").config({ path: './config.env'});
+import {NEWSAPIKEY} from '../utils'
 
 
 function filterArticles(articles) {
@@ -54,7 +53,7 @@ const NewsComponent = () => {
     const apiKey = process.env.NEWSAPI_KEY
     var all_articles;
     // Make a GET request to the API endpoint
-    fetch(`https://newsapi.org/v2/everything?q=farmers%20OR%20%22marginal%20farmers%22%20OR%20%22farmer%20scheme%22%20OR%20%22farmer%20loan%20scheme%22%20OR%20%22farming%20tips%22%20OR%20crops%20OR%20%22india%20farmers%22%20OR%20%22farming%20weather%22%20OR%20%22farming%20pesticides%22%20OR%20%22Indian%20Farmers%22&country&apiKey=${apiKey}`)
+    fetch(`https://newsapi.org/v2/everything?q=farmers%20OR%20%22marginal%20farmers%22%20OR%20%22farmer%20scheme%22%20OR%20%22farmer%20loan%20scheme%22%20OR%20%22farming%20tips%22%20OR%20crops%20OR%20%22india%20farmers%22%20OR%20%22farming%20weather%22%20OR%20%22farming%20pesticides%22%20OR%20%22Indian%20Farmers%22&country&apiKey=${NEWSAPIKEY}`)
       .then(response => response.json())
       .then(data => {
         // Process the data and display news articles

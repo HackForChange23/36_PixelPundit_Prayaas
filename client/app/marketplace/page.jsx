@@ -7,7 +7,7 @@ import { google_translate } from "../assets/assets";
 import Image from "next/image";
 import { BsSearch } from "react-icons/bs";
 import axios from "axios";
-import { url } from "../utils";
+// import { url } from "../utils";
 import { Circles } from "react-loader-spinner";
 
 
@@ -101,7 +101,7 @@ const marketplace = () => {
                     <span style={{display: 'block', height: '25px', width: '35px', borderRadius: '50%', backgroundColor: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                       <p style={{color: 'white'}}>{product.quantity}</p>
                     </span>
-                    <p style={{color: 'lightblue', marginBottom: '10px'}}>Owner</p>
+                    <p style={{color: 'lightblue', marginBottom: '10px'}}>{product.owner.name}</p>
                     
                   </div>
               </div>
