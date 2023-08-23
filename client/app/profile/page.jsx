@@ -1,7 +1,9 @@
+'use client';
 import React from 'react'
 import AppBar from "@/components/AppBar";
 import "../profile/profile.css";
 import { AiFillFileText } from "react-icons/ai";
+import { Select, Option } from "@material-tailwind/react";
 
 const profile = () => {
 
@@ -27,12 +29,29 @@ const profile = () => {
              <div className='out mb-3 '><div className='option_name '>Change Location</div><div>&gt;</div></div>
              <div className='out mb-3 '><div className='option_name'>My Subscription</div><div>&gt;</div></div>
              <div className='out mb-3'><div className='option_name'>Update Details</div><div>&gt;</div></div>
-             <div className='out mb-3'><div className='option_name'>My Loans</div><div>&gt;</div></div>
+             <div className='out mb-3'><div className='option_name'>My Loan Application</div><div>&gt;</div></div>
           </div>
           <button className='btn typo'>LOGOUT</button>
           <div className='w-[95%] ml-[10px] mt-[5px] bg-black h-[2px]'></div>
           <div className='typo del'>DELETE ACCOUNT</div>
-          <input type="text" placeholder='REASON FOR DELETION'/>
+          <div className="w-[65%]">
+            <label
+              for="first_name"
+              className="ml-4 mt-2 block mb-[1px] text-xs font-medium text-gray-900"
+            >
+              Reason for deleting choose below
+            </label>
+            {/* <CenterCont> */}
+            <Select
+              color="blue"
+              className="ml-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg h-10 flex items-center justify-center"
+            >
+              <Option>not a farmer anyomore </Option>
+              <Option>didnt like it </Option>
+             
+            </Select>
+            {/* </CenterCont> */}
+          </div>
         </div>
       </div>
     </div>
