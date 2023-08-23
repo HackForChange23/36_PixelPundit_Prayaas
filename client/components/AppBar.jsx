@@ -4,15 +4,17 @@ import {BsArrowLeftCircle} from 'react-icons/bs'
 import {prayaas} from "../app/assets/assets"
 import { google_translate } from '../app/assets/assets'
 import Link from 'next/link';
+import {useRouter} from 'next/navigation';
 
 
 
 const AppBar = ({ link = '/' }) => {
+  const router=useRouter();
   return (
     <div className="flex w-[100%] h-12 bg-[#2B2A1E]">
       <div className='flex justify-center h-10 w-[33%] text-white text-3xl'>
         <Link href={link}>
-          <BsArrowLeftCircle className="backbtn self-center" />
+          <BsArrowLeftCircle className="backbtn self-center" onClick={()=>router.back()}/>
         </Link>
       </div>
       <Image src={prayaas} alt='logo' />

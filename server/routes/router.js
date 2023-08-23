@@ -11,10 +11,10 @@ const otpController = require("../controllers/otpController");
 
 // Get Routes
 router.get("/getUser/:id", controller.getUserController);
-router.get("/getproduct/", marketplace.getAllProducts);
+router.get("/getproduct", marketplace.getAllProducts);
 router.get("/getproduct/:slug", marketplace.getProductByName);
 router.get("/getwholesellers", wholeSeller.getAllWholeSellers);
-router.get("/getproducts", wholeSeller.getProduct);
+router.get("/getwholesellproducts", wholeSeller.getProduct);
 router.get("/getfarmer", controller.getAllFarmers);
 router.get("/getcontracts", contract.getAllContracts);
 

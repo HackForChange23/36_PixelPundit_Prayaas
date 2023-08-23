@@ -9,14 +9,15 @@ const contractSchema = new mongoose.Schema({
   },
   total_repay: {
     type: Number,
-    required: true
+    required: false
   },
   status:{
     type: Number,
     default: 0,
     min: 0,
     max: 6,
-    integer: true
+    integer: true,
+    required: false
   },
   farmer1:{
     id:{
@@ -48,6 +49,10 @@ const contractSchema = new mongoose.Schema({
         required: true
     }
   },
+  fpo_prayasId: {
+      type: String,
+      required: true
+  },
   fpo_approved: {
     type: Boolean,
     default: false
@@ -70,16 +75,22 @@ const contractSchema = new mongoose.Schema({
   },
   crop: {
     type: String,
-    required: true
+    required: false
   },
   reason: {
     type: String,
-    required: true
+    required: false
   },
   duration: {
     type: String,     //In Months
-    required: true
+    required: false
+  },
+  interest_rate: {
+    type: Number,
+    required: false,
+    default: 4
   }
+
 })
 
 

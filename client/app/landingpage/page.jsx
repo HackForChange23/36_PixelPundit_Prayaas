@@ -1,12 +1,18 @@
-'use client';
-import AppBar from '@/components/AppBar';
-import React from 'react'
+"use client";
+import AppBar from "@/components/AppBar";
+import React from "react";
 import "../landingpage/landing.css";
-import CenterCont from '@/components/CenterCont';
-import Navbar from '@/components/Navbar';
-import StaticCarousel from '@/components/StaticCarousel';
-import {scheme1, scheme2, scheme3, scheme4}  from "../assets/assets";
-import Image from 'next/image';
+import CenterCont from "@/components/CenterCont";
+import Navbar from "@/components/Navbar";
+import StaticCarousel from "@/components/StaticCarousel";
+import { scheme1 } from "../assets/assets";
+// import { scheme2 } from '../assets/assets';
+// import { scheme3 } from '../assets/assets';
+import { scheme2, scheme3, scheme4 } from "../assets/assets";
+import Image from "next/image";
+import Link from "next/link";
+
+
 const landingpage = () => {
     return (
         <div className=" bg-white min-h-screen">
@@ -36,58 +42,80 @@ const landingpage = () => {
     </div>
             <CenterCont>
                 <div className="w-full justify-center bg-white flex align-middle mt-2">
-                    <div className="w-[75%] h-20 flex card1 verify justify-center align-middle font text-2xl text-black font-titleFont">
+                    <div className="w-[75%] h-20 flex card2 verify justify-center align-middle font text-2xl text-black font-titleFont"
+                    style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+
                     
-          <button
-            type="button"
-            className="bg-[#2B2A1E] h-10 rounded-2xl w-[75%] text-white"
-          >
-            FPO
-          </button>
+                    <h1>Micro-Credit Loan</h1>
+                      
                     </div>
                 </div>
             </CenterCont>
+            </Link>
+            <Link href={'/marketplace'}>
+            <CenterCont>
+                <div className="w-full justify-center bg-white flex align-middle mt-2">
+                    <div className="w-[75%] h-20 flex card3 verify justify-center align-middle font text-2xl text-black font-titleFont"
+                    style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
 
-            <div className="justify-center bg-transparent flex align-middle mt-2" >
-                <div className="w-[75%] h-20 flex card2 verify justify-center align-center  font text-2xl text-black font-titleFont">
-                <button
-            type="button"
-            className="bg-[#2B2A1E] h-10 rounded-2xl w-[75%] text-white"
-          >
-            Micro Credit Loan
-          </button>
+                    
+                    <h1>Market Place</h1>
+                      
+                    </div>
                 </div>
+            </CenterCont>
+            </Link>
+            <CenterCont>
+                <div className="w-full justify-center bg-white flex align-middle mt-2">
+                    <div className="w-[75%] h-20 flex card4 verify justify-center align-middle font text-2xl text-black font-titleFont"
+                    style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+
+                    
+                    <h1>FAQ</h1>
+                      
+                    </div>
+                </div>
+            </CenterCont>
+            <Link href={'/newsAPI'}>
+            <CenterCont>
+                <div className="w-full justify-center bg-white flex align-middle mt-2">
+                    <div className="w-[75%] h-20 flex card1 verify justify-center align-middle font text-2xl text-black font-titleFont"
+                    style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+
+                    
+                    <h1>News & Scheme</h1>
+                      
+                    </div>
+                </div>
+            </CenterCont>
+            </Link>
+            <Link href={'/ai'}>
+            <CenterCont>
+                <div className="w-full justify-center bg-white flex align-middle mt-2">
+                    <div className="w-[75%] h-20 flex card2 verify justify-center align-middle font text-2xl text-black font-titleFont"
+                    style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+
+                    
+                    <h1>Predict Disease</h1>
+                      
+                    </div>
+                </div>
+            </CenterCont>
+            </Link>
+            
             </div>
 
-            <div className="justify-center bg-white flex align-middle mt-2">
-                <div className="w-[75%] h-20 flex card3 verify justify-center align-middle font text-2xl text-black font-titleFont">
-                <button
-            type="button"
-            className="bg-[#2B2A1E] h-10 rounded-2xl w-[75%] text-white"
-          >
-            Market Place
-          </button>
-                </div>
-            </div>
-
-
-            <div className="justify-center bg-white flex align-middle mt-2">
-                <div className="w-[75%] h-20 flex card4 verify justify-center align-middle font text-2xl text-black font-titleFont">
-                <button
-            type="button"
-            className="bg-[#2B2A1E] h-10 rounded-2xl w-[75%] text-white"
-          >
-            FAQs
-          </button>
-                </div>
-            </div>
-
-            <Navbar>
-
-            </Navbar>
-
-        </div>
-    );
+      <Navbar></Navbar>
+    </div>
+  );
 };
 
 export default landingpage;
+
+
+
+
+
+
+
+

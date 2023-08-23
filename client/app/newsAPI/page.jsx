@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {NEWSAPIKEY} from '../utils'
+import AppBar from '@/components/AppBar';
 
 
 function filterArticles(articles) {
@@ -71,6 +72,7 @@ const NewsComponent = () => {
 
   return (
     <div>
+      <AppBar></AppBar>
       <h1 style={{textAlign: 'center', fontSize: '22px', fontWeight: 'bold', color: 'darkblue', margin: '10px 0', backgroundColor: 'lightBlue'}}>Latest News</h1>
       <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
       <input style={{margin: '10px 5px', padding: '10px 15px', width: '90vw', maxWidth: '300px', boxShadow: '3px 3px 20px #000', borderRadius: '15px'}}

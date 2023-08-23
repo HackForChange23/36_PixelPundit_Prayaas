@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
          <div className="home">
-          <Link href=""> 
+          <Link href="/landingpage"> 
             <CenterCont>
               <Image className="homelogo" src={home} alt='logo' />
             </CenterCont>
@@ -56,7 +56,7 @@ const Navbar = () => {
           </CenterCont>
         </div>
         <div className="profile">
-          <Link href=""> 
+          <Link href="/profile"> 
             <CenterCont>
               <Image className="homelogo" src={profile} alt='logo' />
             </CenterCont>
