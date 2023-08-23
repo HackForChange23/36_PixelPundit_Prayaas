@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 const Progress_bar = () => {
 
-     const [current_status,setstatus]=useState(0);
+    const [current_status,setstatus]=useState(0);
 
     //BLOCKCHAIN CONNECTION HERE
     const [state,setState]=useState({
