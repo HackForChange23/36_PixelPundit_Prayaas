@@ -7,7 +7,7 @@ import { google_translate } from "../assets/assets";
 import Image from "next/image";
 import { BsSearch } from "react-icons/bs";
 import axios from "axios";
-// import { url } from "../utils";
+import { url } from "../utils";
 import { Circles } from "react-loader-spinner";
 
 

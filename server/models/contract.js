@@ -75,16 +75,22 @@ const contractSchema = new mongoose.Schema({
   },
   crop: {
     type: String,
-    required: true
+    required: false
   },
   reason: {
     type: String,
-    required: true
+    required: false
   },
   duration: {
     type: String,     //In Months
-    required: true
+    required: false
+  },
+  interest_rate: {
+    type: Number,
+    required: false,
+    default: 4
   }
+
 })
 
 

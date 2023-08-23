@@ -10,6 +10,9 @@ import { scheme1 } from "../assets/assets";
 // import { scheme3 } from '../assets/assets';
 import { scheme2, scheme3, scheme4 } from "../assets/assets";
 import Image from "next/image";
+import Link from "next/link";
+
+
 const landingpage = () => {
   return (
     <div className=" bg-white min-h-screen">
@@ -36,52 +39,85 @@ const landingpage = () => {
           <p>Description for Item 2</p>
         </div>
         {/* Add more carousel items as needed */}
-      </div>
-      <CenterCont>
-        <div className="w-full justify-center bg-white flex align-middle mt-2">
-          <div className="w-[75%] h-20 flex card1 verify justify-center align-middle font text-2xl text-black font-titleFont">
-            <button
-              type="button"
-              className="bg-[#2B2A1E] h-10 rounded-2xl w-[75%] text-white"
-            >
-              FPO
-            </button>
-          </div>
-        </div>
-      </CenterCont>
+      </div><div style={{maxHeight: '370px', overflowY: 'auto'}}>
+            <Link href={'/'}>
+            <CenterCont>
+                <div className="w-full justify-center bg-white flex align-middle mt-2">
+                    <div className="w-[75%] h-20 flex card1 verify justify-center align-middle font text-2xl text-black font-titleFont"
+                    style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
 
-      <div className="justify-center bg-transparent flex align-middle mt-2">
-        <div className="w-[75%] h-20 flex card2 verify justify-center align-center  font text-2xl text-black font-titleFont">
-          <button
-            type="button"
-            className="bg-[#2B2A1E] h-10 rounded-2xl w-[75%] text-white"
-          >
-            Micro Credit Loan
-          </button>
-        </div>
-      </div>
+                    
+                    <h1>FPO</h1>
+                      
+                    </div>
+                </div>
+            </CenterCont>
+            </Link>
+            <Link href={'/microcreditregister'}>
+            <CenterCont>
+                <div className="w-full justify-center bg-white flex align-middle mt-2">
+                    <div className="w-[75%] h-20 flex card2 verify justify-center align-middle font text-2xl text-black font-titleFont"
+                    style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
 
-      <div className="justify-center bg-white flex align-middle mt-2">
-        <div className="w-[75%] h-20 flex card3 verify justify-center align-middle font text-2xl text-black font-titleFont">
-          <button
-            type="button"
-            className="bg-[#2B2A1E] h-10 rounded-2xl w-[75%] text-white"
-          >
-            Market Place
-          </button>
-        </div>
-      </div>
+                    
+                    <h1>Micro-Credit Loan</h1>
+                      
+                    </div>
+                </div>
+            </CenterCont>
+            </Link>
+            <Link href={'/marketplace'}>
+            <CenterCont>
+                <div className="w-full justify-center bg-white flex align-middle mt-2">
+                    <div className="w-[75%] h-20 flex card3 verify justify-center align-middle font text-2xl text-black font-titleFont"
+                    style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
 
-      <div className="justify-center bg-white flex align-middle mt-2">
-        <div className="w-[75%] h-20 flex card4 verify justify-center align-middle font text-2xl text-black font-titleFont">
-          <button
-            type="button"
-            className="bg-[#2B2A1E] h-10 rounded-2xl w-[75%] text-white"
-          >
-            FAQs
-          </button>
-        </div>
-      </div>
+                    
+                    <h1>Market Place</h1>
+                      
+                    </div>
+                </div>
+            </CenterCont>
+            </Link>
+            <CenterCont>
+                <div className="w-full justify-center bg-white flex align-middle mt-2">
+                    <div className="w-[75%] h-20 flex card4 verify justify-center align-middle font text-2xl text-black font-titleFont"
+                    style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+
+                    
+                    <h1>FAQ</h1>
+                      
+                    </div>
+                </div>
+            </CenterCont>
+            <Link href={'/newsAPI'}>
+            <CenterCont>
+                <div className="w-full justify-center bg-white flex align-middle mt-2">
+                    <div className="w-[75%] h-20 flex card1 verify justify-center align-middle font text-2xl text-black font-titleFont"
+                    style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+
+                    
+                    <h1>News & Scheme</h1>
+                      
+                    </div>
+                </div>
+            </CenterCont>
+            </Link>
+            <Link href={'/ai'}>
+            <CenterCont>
+                <div className="w-full justify-center bg-white flex align-middle mt-2">
+                    <div className="w-[75%] h-20 flex card1 verify justify-center align-middle font text-2xl text-black font-titleFont"
+                    style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+
+                    
+                    <h1>Predict Disease</h1>
+                      
+                    </div>
+                </div>
+            </CenterCont>
+            </Link>
+            
+            </div>
 
       <Navbar></Navbar>
     </div>
@@ -89,3 +125,11 @@ const landingpage = () => {
 };
 
 export default landingpage;
+
+
+
+
+
+
+
+
