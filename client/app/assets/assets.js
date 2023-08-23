@@ -16,4 +16,7 @@ import scheme2 from "../assets/images/scheme2.jpg";
 import scheme3 from "../assets/images/scheme3.jpg";
 import scheme4 from "../assets/images/scheme4.jpg";
 import scheme5 from "../assets/images/scheme5.jpg";
-export{scheme1,scheme2,scheme3,scheme4,scheme5,alerts,profile,helper,home,prayas,passwordlogo,namelogo,phonenumber,google,farmer, google_translate, googletxt, prayaas};
+import prayasfpo from "../assets/images/prayasfpo.png";
+import mplogo from "../assets/images/mplogo.png"
+import mcllogo from '../assets/images/mcllogo.png'
+export{mcllogo,mplogo,prayasfpo,scheme1,scheme2,scheme3,scheme4,scheme5,alerts,profile,helper,home,prayas,passwordlogo,namelogo,phonenumber,google,farmer, google_translate, googletxt, prayaas};
