@@ -60,10 +60,6 @@ const farmerSchema = new mongoose.Schema({
   },
   id: {
     type: String,
-    required: true
-  },
-  id: {
-    type: String,
     required: [true, "Id is required"]
   },
   email: {
@@ -77,6 +73,10 @@ const farmerSchema = new mongoose.Schema({
   zone: {
     type: String,
     required: [true, "Pincode is required"]
+  },
+  pin:{
+    type: String,
+    required: true
   }
 
 })

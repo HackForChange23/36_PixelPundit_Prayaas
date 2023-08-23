@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Router from "next/router";
+import axios from "axios";
 
 import "./signup.css";
 import AppBar from "@/components/AppBar";
@@ -21,7 +22,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [isPhoneNumberValid, setIsPhoneNumberValid] = useState(true);
 
-  const handleVerify = () => {
+  const handleVerify = async() => {
     if (!isValidPhoneNumber(phoneNumber)) {
       setIsPhoneNumberValid(false);
       return;
@@ -32,11 +33,21 @@ const Signup = () => {
       password: password,
       phoneNumber: phoneNumber,
     };
-    localStorage.setItem("details", name);
+    localStorage.setItem("details", JSON.stringify(details));
 
     // Navigate to the Verify OTP page
     // Router.push("/verifyotp");
-    window.location = "/verifyotp";
+    const res = await axios.post("http://localhost:5000/api/otp", {
+      phoneNumber: phoneNumber,
+    });
+
+    if(res.data.success){
+      console.log("mast");
+       window.location = "/verifyotp";
+    } else {
+      alert("Error");
+    }
+
   };
 
   const handleChange=(e)=>{
@@ -120,6 +131,8 @@ const Signup = () => {
                 type="password"
                 icon={passwordlogo}
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               ></Inputfield>
             </div>
           </CenterCont>

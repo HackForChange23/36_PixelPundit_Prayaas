@@ -3,15 +3,18 @@ import React, { useEffect, useState } from "react";
 import AppBar from "@/components/AppBar";
 import "./verifyotp.css";
 import CenterCont from "@/components/CenterCont";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const initialFormState = {
-  from_name: "",
-  number: "",
-  grade: "",
-  message: "",
+  first_number: "",
+  second_number: "",
+  third_number: "",
+  fourth_number: "",
 };
 
 const verifyotp = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState(initialFormState);
   const [userDetails, setUserDetails] = useState(false);
   const onSubmit = (e) => {
@@ -26,6 +29,23 @@ const verifyotp = () => {
     setUserDetails(localStorage.getItem("details"));
     console.log(JSON.stringify(localStorage.getItem("details")));
   }, []);
+
+  const otpverified = async () => {
+    const res = await axios.post("http://localhost:5000/api/otp/verify", {
+      otp: formData.first_number + formData.second_number +
+        formData.third_number + formData.fourth_number,
+    });
+
+    // console.log(res.data);
+    // console.log(res.data.type);
+    // console.log(res.data.success);
+
+    if (res.data.success) {
+      router.push("/signup2");
+    } else {
+      alert("Error");
+    };
+  };
 
   return (
     <div className="">
@@ -51,9 +71,9 @@ const verifyotp = () => {
           type="number"
           name="from_name"
           placeholder="______"
-          value={formData.from_name}
+          value={formData.first_number}
           onChange={(e) =>
-            setFormData({ ...formData, from_name: e.target.value })
+            setFormData({ ...formData, first_number: e.target.value })
           }
         />
         <input
@@ -61,30 +81,31 @@ const verifyotp = () => {
           type="number"
           name="otp2"
           placeholder="______"
-          value={formData.number}
-          onChange={(e) => setFormData({ ...formData, number: e.target.value })}
+          value={formData.second_number}
+          onChange={(e) => setFormData({ ...formData, second_number: e.target.value })}
         />
         <input
           className="otp3"
           type="number"
           name="otp3"
           placeholder="______"
-          value={formData.grade}
-          onChange={(e) => setFormData({ ...formData, grade: e.target.value })}
+          value={formData.third_number}
+          onChange={(e) => setFormData({ ...formData, third_number: e.target.value })}
         />
         <input
           className="otp4"
           type="number"
           name="otp4"
           placeholder="______"
-          value={formData.message}
+          value={formData.fourth_number}
           onChange={(e) =>
-            setFormData({ ...formData, message: e.target.value })
+            setFormData({ ...formData,fourth_number: e.target.value })
           }
         />
         <button
           type="button"
           className="submit-button bg-[#7ACB2D] h-10 rounded-2xl w-[75%] text-white"
+          onClick={otpverified}
         >
           Verify
         </button>
@@ -92,6 +113,7 @@ const verifyotp = () => {
       <p className="resend">Resend OTP</p>
     </div>
   );
+
 };
 
 export default verifyotp;
