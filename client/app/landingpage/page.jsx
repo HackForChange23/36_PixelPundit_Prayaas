@@ -6,8 +6,6 @@ import CenterCont from "@/components/CenterCont";
 import Navbar from "@/components/Navbar";
 import StaticCarousel from "@/components/StaticCarousel";
 import { scheme1 } from "../assets/assets";
-// import { scheme2 } from '../assets/assets';
-// import { scheme3 } from '../assets/assets';
 import { scheme2, scheme3, scheme4 } from "../assets/assets";
 import Image from "next/image";
 import Link from "next/link";
