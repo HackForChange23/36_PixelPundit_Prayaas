@@ -106,7 +106,7 @@ const landingpage = () => {
             <Link href={'/ai'}>
             <CenterCont>
                 <div className="w-full justify-center bg-white flex align-middle mt-2">
-                    <div className="w-[75%] h-20 flex card1 verify justify-center align-middle font text-2xl text-black font-titleFont"
+                    <div className="w-[75%] h-20 flex card2 verify justify-center align-middle font text-2xl text-black font-titleFont"
                     style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
 
                     
