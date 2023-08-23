@@ -9,14 +9,15 @@ const contractSchema = new mongoose.Schema({
   },
   total_repay: {
     type: Number,
-    required: true
+    required: false
   },
   status:{
     type: Number,
     default: 0,
     min: 0,
     max: 6,
-    integer: true
+    integer: true,
+    required: false
   },
   farmer1:{
     id:{
@@ -47,6 +48,10 @@ const contractSchema = new mongoose.Schema({
         type: Number,
         required: true
     }
+  },
+  fpo_prayasId: {
+      type: String,
+      required: true
   },
   fpo_approved: {
     type: Boolean,
