@@ -101,7 +101,7 @@ const marketplace = () => {
                     <span style={{display: 'block', height: '25px', width: '35px', borderRadius: '50%', backgroundColor: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                       <p style={{color: 'white'}}>{product.quantity}</p>
                     </span>
-                    <p style={{color: 'lightblue', marginBottom: '10px'}}>Owner</p>
+                    <p style={{color: 'lightblue', marginBottom: '10px'}}>{product.owner.name}</p>
                     
                   </div>
               </div>
