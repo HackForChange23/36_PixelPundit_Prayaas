@@ -4,6 +4,7 @@ import Image from "next/image";
 import farmer from "../assets/images/farmer.png";
 import googletxt from "../assets/icons/googlelogo.png";
 import { AiFillPhone } from "react-icons/ai";
+
 const Login = () => {
   return (
     <div className="">

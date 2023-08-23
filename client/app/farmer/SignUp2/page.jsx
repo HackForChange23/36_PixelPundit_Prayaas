@@ -34,61 +34,6 @@ const Details = () => {
         </div>
         <br />
         <div className=" overflow-hidden w-full h-[80%] absolute bottom-0 flex flex-col justify-start items-center">
-          {/* <div className="overflow-hidden w-full h-[80%] absolute bottom-0 flex flex-col justify-start items-center">
-            <button
-              id="dropdownDefaultButton"
-              onClick={toggleDropdown}
-              className="text-gray-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center bg-white"
-              type="button"
-            >
-              Choose your role
-              <IoIosArrowDropdownCircle className="ml-2 text-black text-xl" />
-            </button>
-            {dropdownOpen && (
-              <div
-                id="dropdown"
-                className="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
-              >
-                <ul
-                  className="py-2 text-sm text-black bg-slate-50"
-                  // aria-labelledby="dropdownDefaultButton"
-                >
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >
-                      Farmer
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >
-                      Service Provider
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >
-                      F.P.O. Manager
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >
-                      Sign out
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            )}
-          </div> */}
         </div>
         <CenterCont className="flex flex-">
           <div className="relative mb-4 w-[75%] ">
