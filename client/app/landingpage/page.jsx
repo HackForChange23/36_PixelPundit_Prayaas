@@ -6,12 +6,9 @@ import CenterCont from "@/components/CenterCont";
 import Navbar from "@/components/Navbar";
 import StaticCarousel from "@/components/StaticCarousel";
 import { scheme1 } from "../assets/assets";
-// import { scheme2 } from '../assets/assets';
-// import { scheme3 } from '../assets/assets';
 import { scheme2, scheme3, scheme4 } from "../assets/assets";
 import Image from "next/image";
 import Link from "next/link";
-
 
 const landingpage = () => {
   return (
@@ -106,7 +103,7 @@ const landingpage = () => {
             <Link href={'/ai'}>
             <CenterCont>
                 <div className="w-full justify-center bg-white flex align-middle mt-2">
-                    <div className="w-[75%] h-20 flex card2 verify justify-center align-middle font text-2xl text-black font-titleFont"
+                    <div className="w-[75%] h-20 flex card1 verify justify-center align-middle font text-2xl text-black font-titleFont"
                     style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
 
                     

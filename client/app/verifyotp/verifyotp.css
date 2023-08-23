@@ -4,6 +4,7 @@
 
 body{
     background:white ;
+    overflow-y: hidden;
 }
 
 .top-container{

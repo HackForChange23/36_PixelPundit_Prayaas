@@ -1,0 +1,46 @@
+<<<<<<< HEAD
+.data_div{
+    width: 500px;
+    margin: 50px auto 20px auto;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    padding: 50px;
+    background-color: #ffff;
+}
+
+.btn{
+    background-color: rgb(130, 238, 211);
+    padding: 8px;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.btn:hover{
+    background-color: green;
+    cursor:pointer;
+}
+
+.heading{
+color: #0C134F;
+text-align: center;
+font-family: Salsa;
+font-size: 50px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.heading_2{
+color: #0C134F;
+text-align: center;
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+=======
+body{
+    overflow-y: hidden;
+>>>>>>> d11107ca83b06eca3f69abc155869a2312a1bf34
+}

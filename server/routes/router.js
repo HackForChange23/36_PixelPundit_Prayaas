@@ -7,6 +7,7 @@ const multer = require("multer");
 const contract = require("../controllers/contractor")
 const upload = multer({ storage: wholeSeller.storage });
 const otpController = require("../controllers/otpController");
+const serviceprovider = require("../controllers/serviceProviders")
 
 
 // Get Routes
@@ -17,6 +18,7 @@ router.get("/getwholesellers", wholeSeller.getAllWholeSellers);
 router.get("/getwholesellproducts", wholeSeller.getProduct);
 router.get("/getfarmer", controller.getAllFarmers);
 router.get("/getcontracts", contract.getAllContracts);
+router.get('/getserviceproviders', serviceprovider.getAllServiceProviders);
 
 
 // Post Routes
