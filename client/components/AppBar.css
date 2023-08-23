@@ -1,0 +1,132 @@
+
+/* AppBar */
+.google_translate{
+    position:absolute;
+    right:16px;}
+
+.backbtn{
+    position:absolute;
+    left:15px;
+    top:10px;
+}
+
+
+
+/* CenterCont css */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-top:20px; */
+  }
+
+/* signupgoogle */
+  
+
+/* inputfield */
+
+.inputfield{
+    position:relative;
+}
+.inputimage{
+    position: absolute;
+    left:15px;
+    top:12px;
+
+}
+
+/* navbar */
+.navbar{
+    position:absolute;
+    bottom:0px;
+    width: 100%;
+height: 55px;
+flex-shrink: 0;
+border: 1px solid rgba(188, 132, 132, 0.53);
+background: #2B2A1E;
+
+}
+
+.prayas{
+    position:absolute;
+    bottom:0px;
+    width: 80px;
+    border-radius: 50%;
+height: 80px;
+flex-shrink: 0;
+background: #2B2A1E;
+}
+
+.prayaslogo{
+    height:60px;
+    width:75px;
+}
+
+.prayascont{
+    position:absolute;
+    bottom:10px;
+    color: #FFF;
+font-feature-settings: 'clig' off, 'liga' off;
+font-family: Poppins;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.home{
+    position:absolute;
+    bottom:0px;
+    left:10px;
+    width: 70px;
+height: 54px;
+flex-shrink: 0;
+background: #2B2A1E;
+}
+
+.homecont{
+    position:absolute;
+    bottom:5px;
+    color: #FFF;
+font-feature-settings: 'clig' off, 'liga' off;
+font-family: Poppins;
+font-size: 10px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.homelogo{
+    position:absolute;
+    bottom:18px;
+}
+
+.helper{
+    position:absolute;
+    bottom:0px;
+    left:75px;
+    width: 70px;
+height: 54px;
+flex-shrink: 0;
+background: #2B2A1E;
+}
+
+.alerts{
+    position:absolute;
+    bottom:0px;
+    left:235px;
+    width: 70px;
+height: 54px;
+flex-shrink: 0;
+background: #2B2A1E;
+}
+
+.profile{
+    position:absolute;
+    bottom:0px;
+    left:295px;
+    width: 70px;
+height: 54px;
+flex-shrink: 0;
+background: #2B2A1E;
+}

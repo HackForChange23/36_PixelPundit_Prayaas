@@ -1,0 +1,114 @@
+.profiled{
+    box-shadow: 0px -4px 16px 0px #000; 
+}
+
+.account{
+width: 67px;
+height: 28px;
+margin-top: 25px;
+margin-left: 35px;
+}
+
+.typo{
+    color: #000;
+    font-family: Salsa;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.out{
+width: 317px;
+height: 20px;
+flex-shrink: 0;
+display: flex;
+justify-content: space-between;
+}
+
+.option_name{
+display: flex;
+width: 308px;
+height: 19px;
+flex-direction: column;
+justify-content: center;
+flex-shrink: 0;
+color: #000;
+font-family: Inter;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+margin-left:30px; 
+} 
+
+.btn{
+    background-color: white;
+    padding: 10px;
+    color:black;
+    margin-top: 10px;
+    margin-left:20px;
+    width: 106px;
+    height: 36px;
+    border-radius: 18px;
+    border:1px solid #000;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+body{
+    overflow-y: hidden;
+}
+
+.del{
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+input{
+    margin-top: 15px;
+    margin-left: 15px;
+    padding: 5px;
+    border-radius: 5px;
+    border:2px solid black;
+}
+
+.details{
+    margin-left: 120px;
+    margin-top: 40px;
+}
+
+.details .name{
+    color: #FFF;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 18px; 
+    height: 18.287px;
+}
+
+.details .pan_card{
+color: grey;
+font-feature-settings: 'clig' off, 'liga' off;
+font-family: Poppins;
+font-size: 9px;
+font-style: normal;
+line-height: normal;
+width: 69px;
+height: 11.814px;
+}
+
+.image{
+    border:1px solid grey;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    position: absolute;
+    margin-left: 20px;
+    margin-top:15px;
+    display: flex;
+    justify-content: center;
+}
