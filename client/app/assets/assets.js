@@ -11,5 +11,8 @@ import home from "../assets/icons/home.png";
 import helper from "../assets/icons/helper.png";
 import alerts from "../assets/icons/alerts.png";
 import profile from "../assets/icons/profile.png";
+// import mcllogo from "../assets/images/mcllogo.png";
+import mplogo from "../assets/images/mplogo.png";
 
-export{alerts,profile,helper,home,prayas,passwordlogo,namelogo,phonenumber,google,farmer, google_translate, googletxt, prayaas};
+
+export{mplogo,alerts,profile,helper,home,prayas,passwordlogo,namelogo,phonenumber,google,farmer, google_translate, googletxt, prayaas};
