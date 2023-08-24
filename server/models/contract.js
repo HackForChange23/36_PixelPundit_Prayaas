@@ -105,6 +105,11 @@ const contractSchema = new mongoose.Schema({
   zone: {
     type: String,
     required: true
+  },
+  confirmedBy: {
+    type: String,
+    required: false,
+    default: 0
   }
 
 })

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, {useState, useEffect} from "react";
 import CenterCont from "@/components/CenterCont";
 import AppBar from "@/components/AppBar";
 import Navbar from "@/components/Navbar";
@@ -11,6 +11,10 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import { useRouter } from "next/navigation";
+import { url } from "@/app/utils";
+import axios from "axios";
+// import {useRouter} from "next/navigation/"
 
 const style = {
   position: 'absolute',
@@ -24,6 +28,37 @@ const style = {
   p: 4,
 };
 const myloan = () => {
+
+  const router = useRouter();
+  
+  const [products, setProducts] = useState(false);
+  const [reqURL, setreqURL] = useState(url);
+  const [img, setImg] =useState();
+
+  const getAllProducts = async () => {
+    try {
+
+      const res = await axios.post(url + 
+      // `/getContractsByPrayasId?farmer1.PrayaasId=${localStorage.getItem('prayaasId')}`
+      `/getContractsByPrayasId?farmer1.PrayaasId=FAM653005`,
+       {prayasId: 'FAM653005'});
+      console.log(res.data);
+      setProducts(res.data);
+      
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(()=>{
+    getAllProducts();
+  }, [])
+
+  const handleClick = () => {
+    alert("Accepted");
+    router.push("/landingpage");
+  }
+
   const [open, setOpen] = React.useState(false);
   const [pin, setPin] = React.useState("");
 
@@ -34,25 +69,28 @@ const myloan = () => {
       <AppBar />
       <CenterCont>
         <div className="w-full justify-center bg-wh flex align-middle mt-6">
-          <div
-            className="w-[80%] h-20 rounded-lg flex card1 font text-sm text-black font-titleFont p-2 justify-between items-center"
-          >
-            <h5>Application Id:</h5>
-            <span>234{""}</span>
-              <button
-                type="button"
-                className="bg-[#2B2A1E] h-8 rounded-lg text-white w-8 -mr-10 justify-center items-center flex"
-                onClick={handleOpen}
-              >
-                <TiTick />
-              </button>
+          {products && products.data.map((product)=>(
+              <div
+              className="w-[80%] h-[100px] rounded-lg flex card1 font text-sm text-black font-titleFont p-2 justify-between items-center"
+            >
+              <h5>{product.farmer1.PrayaasId}</h5>
+          <span>234{""}</span>
             <button
               type="button"
-              className="bg-[#2B2A1E] h-8 rounded-lg text-white w-8 mx-1 justify-center items-center flex"
+              className="bg-[#2B2A1E] h-8 rounded-lg text-white w-8 -mr-10 justify-center items-center flex"
+              onClick={handleOpen}
             >
-              <RxCross2/>
+              <TiTick />
             </button>
-          </div>
+          <button
+            type="button"
+            className="bg-[#2B2A1E] h-8 rounded-lg text-white w-8 mx-1 justify-center items-center flex"
+            
+          >
+            <RxCross2/>
+          </button>
+        </div>
+          ))}
         </div>
         <Modal
         open={open}
@@ -82,10 +120,12 @@ const myloan = () => {
                 onChange={(e) => setPin(e.target.value)}
               />
             </div>
+            <button style={{height: '40px', width: '150px'}} onClick={handleClick}>Confirm</button>
           </div>
         </CenterCont>
         </Box>
       </Modal>
+      {/* {products && JSON.stringify(products)} */}
       </CenterCont>
       <Navbar></Navbar>
     </div>

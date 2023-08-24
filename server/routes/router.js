@@ -33,6 +33,7 @@ router.post("/contract/approvebyfpo", contract.approveFPO);
 router.post("/contract/approvebyservice", contract.approveServiceProvider);
 router.post("/otp",otpController.sendOtp);
 router.post("/otp/verify", otpController.verifyOtp);
+router.post('/getContractsByPrayasId', contract.getContractsOfFarmers);
 
 
 

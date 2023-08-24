@@ -11,7 +11,7 @@ const page = ({params}) => {
 
     const getData = async () => {
         try {
-            const res = await axios.get(url + "/getproducts",{_id: id})
+            const res = await axios.get(url + "getproducts",{_id: id})
             console.log(res)
         } catch (error) {
             console.log(error)
