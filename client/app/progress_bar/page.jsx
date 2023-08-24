@@ -37,9 +37,9 @@ const Progress_bar = () => {
     setSkipped(newSkipped);
   };
 
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
+  // const handleBack = () => {
+  //   setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  // };
 
   const handleSkip = () => {
     if (!isStepOptional(activeStep)) {
@@ -96,10 +96,10 @@ const Progress_bar = () => {
     //BLCOKCHAIN CONNECTION ENDS HERE    
  
 
-    const update_status = async(_applicationId)=>{
-      const transaction=await contract.updateStatus_Installment(_applicationId)
+    const update_status = async()=>{
+      const transaction=await contract.updateStatus_Installment('1234')
       await transaction.wait();
-      const st=await contract.getCurrentStatus(_applicationId);
+      const st=await contract.getCurrentStatus('1234');
       setstatus();
       console.log(st);
     } ;
@@ -113,59 +113,7 @@ const Progress_bar = () => {
   //update process bar
     return (
     <div>
-     <Box sx={{ width: '100%' }}>
-      <Stepper activeStep={activeStep}>
-        {steps.map((label, index) => {
-          const stepProps = {};
-          const labelProps = {};
-              <Typography variant="caption">Optional</Typography>
-          if (isStepSkipped(index)) {
-            stepProps.completed = false;
-          }
-          return (
-            <Step key={label} {...stepProps}>
-              <StepLabel {...labelProps}>{label}</StepLabel>
-            </Step>
-          );
-        })}
-      </Stepper>
-      {activeStep === steps.length ? (
-        <React.Fragment>
-          <Typography sx={{ mt: 2, mb: 1 }}>
-            All steps completed - you&apos;re finished
-          </Typography>
-          <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-            <Box sx={{ flex: '1 1 auto' }} />
-            {/* <Button onClick={handleReset}>Reset</Button> */}
-          </Box>
-        </React.Fragment>
-      ) : (
-        <React.Fragment>
-          <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
-          <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-            <Button
-              color="inherit"
-              disabled={activeStep === 0}
-              onClick={handleBack}
-              sx={{ mr: 1 }}
-            >
-              Back
-            </Button>
-            <Box sx={{ flex: '1 1 auto' }} />
-            {isStepOptional(activeStep) && (
-              <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
-                Skip
-              </Button>
-            )}
-
-            <Button onClick={handleNext}>
-              {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-            </Button>
-          </Box>
-        </React.Fragment>
-      )}
-    </Box>
-      {/* <button onClick={update_status}>UPDATE_STATUS</button> */}
+      <button onClick={update_status}>UPDATE_STATUS</button>
     </div>
   )
 }

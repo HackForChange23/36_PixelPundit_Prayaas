@@ -1,0 +1,31 @@
+.div{
+    margin-top: 200px;
+    background-color: aliceblue;
+    padding: 50px;
+    border-radius: 10px;
+    width: fit-content;
+    margin: 100px auto;
+}
+
+.btn{
+    padding: 10px;
+    background-color: #04AA6D;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    color: white;
+}
+
+.btn:hover{
+    cursor: pointer;
+}
+
+.loan-header{
+    text-align: center;
+    background-color:#0C134F;
+    font-size: 50px;
+    font-family: sans-serif;
+    height: 80px;
+    align-items: center;
+    color: white;
+}

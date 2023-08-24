@@ -11,13 +11,14 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { ethers } from 'ethers';
 import abi from '../../contracts/Loan.json';
+import './page_bar.css'
 
 const steps = ['INSTALLMENT1', 'INSTALLMENT2', 'INSTALLMENT3','INSTALLMENT4','REPAYMENT1','REPAYMENT2','NFT_GENERATED'];
 
 const Page = () => {
 
   const params=useParams();
-  const uid=params.id;
+  const uid=params.id.toString();
   console.log(uid)
   const [data, setdata] = useState(false);
  
@@ -32,16 +33,16 @@ const Page = () => {
     return skipped.has(step);
   };
 
-  const handleNext = () => {
-    let newSkipped = skipped;
-    if (isStepSkipped(activeStep)) {
-      newSkipped = new Set(newSkipped.values());
-      newSkipped.delete(activeStep);
-    }
+  // const handleNext = () => {
+  //   let newSkipped = skipped;
+  //   if (isStepSkipped(activeStep)) {
+  //     newSkipped = new Set(newSkipped.values());
+  //     newSkipped.delete(activeStep);
+  //   }
 
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    setSkipped(newSkipped);
-  };
+  //   setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  //   setSkipped(newSkipped);
+  // };
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
@@ -98,29 +99,29 @@ useEffect(() => {
 }, []);
 
 const { contract } = state;
+console.log(contract);
 
 //BLOCKCHAIN CALL ENDS
       
     //BLCOKCHAIN CONNECTION ENDS HERE    
  
 
-    const update_status = async(uid)=>{
-      const transaction= await contract.updateStatus_Installment(uid)
+    const update_status = async()=>{
+      const transaction= await contract.updateStatus_Installment('123')
       await transaction.wait();
-      const st=await contract.getCurrentStatus(uid);
-      setstatus();
+      const st=await contract.getCurrentStatus('123');
+      setActiveStep(st);
       console.log(st);
     } ;
 
-    useEffect(()=>{
-       update_status(uid);
-     },[]);
 
   //fetch current process bar
 
   //update process bar
     return (
-    <div>
+    <>
+     <div className='loan-header'><p>PAYMENT PROGRERSS BAR</p></div>
+    <div className='div'>
      <Box sx={{ width: '100%' }}>
       <Stepper activeStep={activeStep}>
         {steps.map((label, index) => {
@@ -149,32 +150,33 @@ const { contract } = state;
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
+          <Typography sx={{ mt: 5, mb: 1 }}>STEP {activeStep + 1} ----- LOAN AMOUNT {(activeStep + 1)*1000}</Typography>
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-            <Button
+            {/* <Button
               color="inherit"
               disabled={activeStep === 0}
               onClick={handleBack}
               sx={{ mr: 1 }}
             >
               Back
-            </Button>
+            </Button> */}
             <Box sx={{ flex: '1 1 auto' }} />
             {isStepOptional(activeStep) && (
-              <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
+              {/* <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
                 Skip
-              </Button>
+              </Button> */}
             )}
 
-            <Button onClick={handleNext}>
+            {/* <Button onClick={handleNext}>
               {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-            </Button>
+            </Button> */}
           </Box>
         </React.Fragment>
       )}
     </Box>
-      {/* <button onClick={update_status}>UPDATE_STATUS</button> */}
+      <button onClick={update_status} className='btn'>UPDATE_STATUS</button>
     </div>
+    </>
   )
 }
   
