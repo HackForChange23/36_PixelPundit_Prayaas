@@ -1,13 +1,50 @@
 "use client";
-import React from "react";
+import React, { useState }from "react";
+import { useRouter } from "next/navigation";
 // import React, { useState } from "react";
 import AppBar from "@/components/AppBar";
 // import { AiFillFileText } from "react-icons/ai";
+import Link from "next/link";
 import CenterCont from "@/components/CenterCont";
 import Navbar from "@/components/Navbar";
+import { ButtonGroup } from "@material-tailwind/react";
 const farmersell = () => {
+  const router = useRouter();
+  const [productName, setProductName] = useState("");
+  const [costPerKg, setCostPerKg] = useState("");
+  const [minimumQuantity, setMinimumQuantity] = useState("");
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleProductNameChange = (event) => {
+    setProductName(event.target.value);
+  };
+
+  const handleCostPerKgChange = (event) => {
+    setCostPerKg(event.target.value);
+  };
+
+  const handleMinimumQuantityChange = (event) => {
+    setMinimumQuantity(event.target.value);
+  };
+
+  const handleImageUpload = (event) => {
+    const image = event.target.files[0];
+    setSelectedImage(image);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("Clicked");
+
+    // Handle form submission logic here
+
+    // After submitting, redirect to the desired page
+    // window.href.location("/marketplace");
+    router.push("/marketplace")
+  };
 
   return (
+    
     <div className=" bg-gradientbg min-h-screen">
       <AppBar />
       <div className="min-h-screen flex flex-col relative overflow-hidden">
@@ -24,69 +61,65 @@ const farmersell = () => {
         <br />
         <div className=" overflow-hidden w-full h-[80%] absolute bottom-0 flex flex-col justify-start items-center">
         </div>
-        <CenterCont className="flex flex-">
-          <div className="relative mb-4 w-[75%] ">
-            {/* <div className="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
-              <AiFillFileText className="text-black" />
-            </div> */}
-            <input
-              type="text"
-              id="input-group-1"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5"
-              placeholder="Product Name"
-            />
-          </div>
-        </CenterCont>
+        <form onSubmit={handleSubmit}>
         <CenterCont>
-          <div className="relative mb-4 w-[75%]">
-            {/* <div className="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
-              <BsFillTelephoneFill className="text-black" />
-            </div> */}
-            <input
-              type="text"
-              id="input-group-1"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5"
-              placeholder="Cost per kg"
-            />
-          </div>
-        </CenterCont>
+        <div className="relative mb-4 w-[75%]">
+          <input
+            type="text"
+            value={productName}
+            onChange={handleProductNameChange}
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5"
+            placeholder="Product Name"
+          />
+        </div>
+      </CenterCont>
 
-        <CenterCont>
-          <div className="relative mb-4 w-[75%]">
-            {/* <div className="absolute inset-y-0 left-0 flex items-center pl-3.5">
-              <BsFillPersonVcardFill className="text-black" />
-            </div> */}
-            <input
-              type="text"
-              id="input-group-1"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5"
-              placeholder="Minimum Quantity"
-            />
-          </div>
-        </CenterCont>
+      <CenterCont>
+        <div className="relative mb-4 w-[75%]">
+          <input
+            type="text"
+            value={costPerKg}
+            onChange={handleCostPerKgChange}
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5"
+            placeholder="Cost per kg"
+          />
+        </div>
+      </CenterCont>
 
-        <CenterCont>
-          <div className="relative mb-4 w-[75%]">
-            {/* <div className="absolute inset-y-0 left-0 flex items-center pl-3.5">
-              <BsFillPersonVcardFill className="text-black" />
-            </div> */}
-            <input
-              type="text"
-              id="input-group-1"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5"
-              placeholder="Minimum Quantity"
-            />
-          </div>
-        </CenterCont>
+      <CenterCont>
+        <div className="relative mb-4 w-[75%]">
+          <input
+            type="text"
+            value={minimumQuantity}
+            onChange={handleMinimumQuantityChange}
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5"
+            placeholder="Minimum Quantity"
+          />
+        </div>
+      </CenterCont>
+
+      <CenterCont>
+        <div className="relative mb-4 w-[75%]">
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageUpload}
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+          />
+        </div>
+      </CenterCont>
         
-        <CenterCont>
-          <button
-            type="button"
-            className="bg-[#2B2A1E] h-10 rounded-2xl w-[75%] text-white"
-          >
-            Sell
-          </button>
-        </CenterCont>
+      <CenterCont>
+  <button
+    type="submit"
+   
+    className="bg-[#2B2A1E] h-10 rounded-2xl w-[75%] text-white flex items-center justify-center z-10"
+  >
+    Sell
+    </button>
+  
+</CenterCont>
+</form>
       </div>
       <Navbar></Navbar>
     </div>

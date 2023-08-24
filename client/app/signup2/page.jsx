@@ -22,7 +22,7 @@ const Details = () => {
   const [address1, setAddress1] = useState("");
   const [address2, setAddress2] = useState("");
   const [pincode, setPincode] = useState("");
-  const [state, setState] = useState("");
+  // const [state, setState] = useState("");
 
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -34,31 +34,58 @@ const Details = () => {
   const handleClick = async() => {
 
 
-    const options = {
-      method: 'POST',
-      url: 'https://pan-card-verification1.p.rapidapi.com/v3/tasks/sync/verify_with_source/ind_pan',
-      headers: {
-        'content-type': 'application/json',
-        'X-RapidAPI-Key': 'd6ff027c08msh8d7ea36338ec77ep13de6ejsncf1458578c19',
-        'X-RapidAPI-Host': 'pan-card-verification1.p.rapidapi.com'
-      },
-      data: {
-        task_id: '74f4c926-250c-43ca-9c53-453e87ceacd1',
-        group_id: '8e16424a-58fc-4ba4-ab20-5bc8e7c3c41e',
-        data: {
-          id_number: Pan,
-        }
-      }
-    };
+    // const options = {
+    //   method: 'POST',
+    //   url: 'https://pan-card-verification1.p.rapidapi.com/v3/tasks/sync/verify_with_source/ind_pan',
+    //   headers: {
+    //     'content-type': 'application/json',
+    //     'X-RapidAPI-Key': 'd6ff027c08msh8d7ea36338ec77ep13de6ejsncf1458578c19',
+    //     'X-RapidAPI-Host': 'pan-card-verification1.p.rapidapi.com'
+    //   },
+    //   data: {
+    //     task_id: '74f4c926-250c-43ca-9c53-453e87ceacd1',
+    //     group_id: '8e16424a-58fc-4ba4-ab20-5bc8e7c3c41e',
+    //     data: {
+    //       id_number: Pan,
+    //     }
+    //   }
+    // };
 
     try {
-      const response = await axios.request(options);
-      if(response.status == "completed"){
-        const res = await axios.post("http://localhost:5000/api/register", {
-        
-      })
-    }
-    } catch (error) {
+      
+      const backendData = {
+        pan: Pan,
+        pin: pin,
+        address: address1 + " " + address2 + " " + pincode + " ",
+        pin_code: pincode,
+        // state: state,
+        name: localStorage.getItem("name"),
+        contact_no: localStorage.getItem("phoneNumber"),
+        password: localStorage.getItem("password"),
+        role:'farmer'
+      }
+      // const response = await axios.request(options);
+      // if(response.status == "completed"){
+      //   console.log("done");
+      //   const backendData = {
+      //     pan: Pan,
+      //     pin: pin,
+      //     address: address1 + " " + address2 + " " + pincode + " ",
+      //     pincode: pincode,
+      //     // state: state,
+      //     name: localStorage.getItem("name"),
+      //     contact_no: localStorage.getItem("phoneNumber"),
+      //     password: localStorage.getItem("password"),
+      //     role:'farmer'
+      //   }
+        const res = await axios.post("http://localhost:5000/api/register", backendData);
+        if(res.data.success){
+          window.location = "/login";
+        } else {
+          alert("Error");
+        }
+
+    }catch (error) {
       console.error(error);
     }
   };
@@ -155,7 +182,7 @@ const Details = () => {
               <RiLockPasswordLine className="text-black" />
             </div>
             <input
-              type="text"
+              type="password"
               id="input-group-1"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5"
               placeholder="Set PIN"
@@ -276,8 +303,8 @@ const Details = () => {
             <Select
               color="blue"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg h-10 flex items-center justify-center"
-              value={state}
-              onChange={(e) => setState(e.target.value)}
+              // value={state}
+              // onChange={(e) => setState(e.target.value)}
             >
               <Option>Maharashtra</Option>
               <Option>Karnataka</Option>
@@ -292,7 +319,7 @@ const Details = () => {
         <CenterCont>
           <button
             type="button"
-            className="bg-[#2B2A1E] h-10 rounded-2xl w-[75%] text-white"
+            className="bg-[#2B2A1E] h-10 rounded-2xl w-[75%] text-white z-10"
             onClick={handleClick}
           >
             Submit

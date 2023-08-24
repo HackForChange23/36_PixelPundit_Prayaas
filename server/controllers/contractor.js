@@ -21,20 +21,19 @@ function getCropCategory(cropName) {
 
 const postContract = async (req, res) => {
       try {
-          const { total_grant, total_repay, farmer1, farmer2, farmer3, crop, reason } = req.body;
-  
+          const { total_grant, fpo_prayasId, farmer1, farmer2, farmer3, requirement } = req.body;
+        console.log(req.body);
           const newContract = new Contract({
               total_grant,
-              total_repay,
+              fpo_prayasId,
               farmer1,
               farmer2,
               farmer3,
-              crop,
-              reason,
-              duration: getCropCategory(crop)
+              requirement,
+            //   duration: getCropCategory(crop)
           });
 
-          if (!total_grant || !total_repay || !farmer1 || !farmer2 || !farmer3) {
+          if (!total_grant || !farmer1 || !farmer2) {
             return res.status(400).json({ success: false, msg: "Missing required fields" });
         }
   

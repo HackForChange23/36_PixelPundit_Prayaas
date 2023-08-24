@@ -61,8 +61,8 @@ function generateDynamicId(role) {
 
 const registerController = async (req, res) => {
     try {
-        const { contact_no, name, password, adhaar_no, email, address, role, pin_code, photoPath, pan } = req.body;
-      
+        const { contact_no, name, password, adhaar_no, email, address, role, pin_code, photoPath, pan,pin } = req.body;
+        console.log(req.body);
         if (role == "farmer"){
             const farmer = await Farmer.findOne({pan: pan});
          
@@ -72,13 +72,15 @@ const registerController = async (req, res) => {
               
                 return res.status(400).json({ success: false, msg: "Account already exists !" });
             }
-            const zone = req.body.pin_code.toString()[0];
+            // console.log(req.body.pin_code[0]);
+            const zone = req.body.pin_code[0];
+            console.log(req.body.pin);
             
             id = "FAM" + generateRandomNumber().toString()
             if (password) {
                 const hashPassword = await bcrypt.hash(req.body.password, 10);
                 const user = new Farmer({
-                    contact_no, name, password: hashPassword, pan, email : email || "", address, role, pin_code, photoPath, id, zone, pan
+                    contact_no, name, password: hashPassword, pan, email : email || "", address, role, pin_code, photoPath, id, zone, pan,pin
                 });
                 await user.save();
               }

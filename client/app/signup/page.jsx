@@ -33,7 +33,10 @@ const Signup = () => {
       password: password,
       phoneNumber: phoneNumber,
     };
-    localStorage.setItem("details", JSON.stringify(details));
+    // localStorage.setItem("details", JSON.stringify(details));
+    localStorage.setItem("phoneNumber", phoneNumber);
+    localStorage.setItem("name", name);
+    localStorage.setItem("password", password);
 
     // Navigate to the Verify OTP page
     // Router.push("/verifyotp");

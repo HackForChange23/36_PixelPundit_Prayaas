@@ -77,6 +77,11 @@ const farmerSchema = new mongoose.Schema({
   pin:{
     type: String,
     required: true
+  },
+  prayaas_score:{
+    type: Number,
+    required: false,
+    default: 3
   }
 
 })
