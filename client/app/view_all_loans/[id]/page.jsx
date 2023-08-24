@@ -1,5 +1,8 @@
-'use client';
-import React, { useState,useEffect } from 'react'
+"use client";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useRouter } from 'next/navigation'; // Import the useRouter hook
+import { useParams } from 'next/navigation';
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
@@ -7,14 +10,17 @@ import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { ethers } from 'ethers';
-import abi from '../contracts/Loan.json';
-import '../contract_approving/contract_approving.css'
+import abi from '../../contracts/Loan.json';
 
 const steps = ['INSTALLMENT1', 'INSTALLMENT2', 'INSTALLMENT3','INSTALLMENT4','REPAYMENT1','REPAYMENT2','NFT_GENERATED'];
 
+const Page = () => {
 
-const Progress_bar = () => {
-
+  const params=useParams();
+  const uid=params.id;
+  console.log(uid)
+  const [data, setdata] = useState(false);
+ 
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
 
@@ -62,50 +68,52 @@ const Progress_bar = () => {
 
     const [current_status,setstatus]=useState(0);
 
-    //BLOCKCHAIN CONNECTION HERE
-    const [state,setState]=useState({
-        provider:null,
-        signer:null,
-        contract:null,
-      })  
-    
-      useEffect(()=>{
-         const connectWallet=async()=>{
-            const contractAddress = "0x3f1defbD01a839763ba625191860430a2c57c406";
-            const contractAbi=abi.abi;
-            try{
-               const {ethereum}=window;
-               if(ethereum){
-                    const account = await ethereum.request({method:"eth_requestAccounts"})
-               }else{
-                   console.log("no metamask")
-               }
-               const provider= new ethers.providers.Web3Provider(ethereum);
-               const signer=provider.getSigner();
-               const contract=new ethers.Contract(contractAddress,contractAbi,signer);
-               setState({provider,signer,contract})
-            }catch(error){
-               console.log(error)
-            } 
-        };
-        connectWallet();
-      },[]);
+//BLOCKCHAIN CALL STARTS  
+const [state, setState] = useState({
+    provider: null,
+    signer: null,
+    contract: null,
+});
 
-      const {contract} =state;
+useEffect(() => {
+    const connectWallet = async () => {
+        const contractAddress = "0x3f1defbD01a839763ba625191860430a2c57c406";
+        const contractAbi = abi.abi;
+        try {
+            const { ethereum } = window;
+            if (ethereum) {
+                const accounts = await ethereum.request({ method: "eth_requestAccounts" });
+                const provider = new ethers.providers.Web3Provider(ethereum);
+                const signer = provider.getSigner();
+                const contract = new ethers.Contract(contractAddress, contractAbi, signer);
+                setState({ provider, signer, contract });
+            } else {
+                console.log("No Metamask");
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    connectWallet();
+}, []);
+
+const { contract } = state;
+
+//BLOCKCHAIN CALL ENDS
       
     //BLCOKCHAIN CONNECTION ENDS HERE    
  
 
-    const update_status = async(_applicationId)=>{
-      const transaction=await contract.updateStatus_Installment(_applicationId)
+    const update_status = async(uid)=>{
+      const transaction= await contract.updateStatus_Installment(uid)
       await transaction.wait();
-      const st=await contract.getCurrentStatus(_applicationId);
+      const st=await contract.getCurrentStatus(uid);
       setstatus();
       console.log(st);
     } ;
 
     useEffect(()=>{
-       update_status();
+       update_status(uid);
      },[]);
 
   //fetch current process bar
@@ -169,5 +177,8 @@ const Progress_bar = () => {
     </div>
   )
 }
+  
 
-export default Progress_bar
+
+export default Page;
+
