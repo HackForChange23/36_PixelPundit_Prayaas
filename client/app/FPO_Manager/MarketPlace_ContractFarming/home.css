@@ -11,7 +11,12 @@ body {
   flex-shrink: 0;
   background-color: #0c134f;
 }
-
+.prayasfpo{
+  position:absolute;
+  left:500px;
+  height:50px;
+  width:500px;
+}
 .profile {
   position: relative;
   top: 10px;
