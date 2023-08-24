@@ -23,7 +23,7 @@ const Navbar = () => {
         </CenterCont>
       </div>
       <div className="helper">
-        <Link href="">
+        <Link href="/chatbot">
           <CenterCont>
             <Image className="homelogo" src={helper} alt="logo" />
           </CenterCont>
