@@ -110,6 +110,7 @@ async function loginWholeSeller(req, res) {
     if (!wholeseller) {
       return res.status(404).json({ success: false, msg: "Wholeseller not found" });
     }
+    
     const passwordCheck = await bcrypt.compare(password, wholeseller.password);
     if (!passwordCheck) {
       return res.status(401).json({ success: false, msg: "Incorrect password" });

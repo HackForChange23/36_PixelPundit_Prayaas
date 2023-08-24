@@ -50,6 +50,7 @@ const amt2=[]
 const getContracts = async() => {
   try {
     const res = await axios.get(url+`/getcontracts`);
+    console.log(res); 
     console.log(res.data.data[0].farmer1.PrayaasId)
     console.log(res.data.data[0].farmer2.PrayaasId)
 
