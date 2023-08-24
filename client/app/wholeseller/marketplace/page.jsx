@@ -97,7 +97,7 @@ const marketplace = () => {
               
               <div style={{height: 'auto', width: '35%', backgroundImage: "linear-gradient(60deg, green,white, white)", minWidth: '150px', borderRadius: '10px', boxShadow: '0 0 15px #000', marginTop: '10px', display: 'flex', flexDirection: 'column'}} key={index}>
                   <div style={{height: '150px'}}>
-                  <img src="https://picsum.photos/200/300" alt="Not Found" style={{height: '150px', width: '100%'}} />
+                  <img src={`${reqURL}imgs/${product.image}`} alt="Not Found" style={{height: '150px', width: '100%'}} />
                   </div>
                   <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'black'}}>
                     <p style={{color: "white", textAlign: 'center', height: 'auto', display: 'flex', alignItems: 'center', padding: '5px 0'}}>{product.name}</p>
