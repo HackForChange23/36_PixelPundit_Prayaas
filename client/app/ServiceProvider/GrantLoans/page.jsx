@@ -1,34 +1,11 @@
-"use client";
-import React from "react";
-import CenterCont from "@/components/CenterCont";
-import AppBar from "@/components/AppBar";
-import Navbar from "@/components/Navbar";
-import styles from "../../landingpage/landing.css";
-import { Progress } from "@material-tailwind/react";
-import { TiTick } from "react-icons/ti";
-import {RxCross2} from "react-icons/rx";
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
+import AppBar from '@/components/AppBar';
+import CenterCont from '@/components/CenterCont';
+import Navbar from '@/components/Navbar';
+import React from 'react'
+import { RxCross2 } from 'react-icons/rx';
+import { TiTick } from 'react-icons/ti';
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
-const myloan = () => {
-  const [open, setOpen] = React.useState(false);
-  const [pin, setPin] = React.useState("");
-
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+const page = () => {
   return (
     <div className="bg-gradientbg min-h-screen">
       <AppBar />
@@ -42,7 +19,7 @@ const myloan = () => {
               <button
                 type="button"
                 className="bg-[#2B2A1E] h-8 rounded-lg text-white w-8 -mr-10 justify-center items-center flex"
-                onClick={handleOpen}
+                // onClick={handleOpen}
               >
                 <TiTick />
               </button>
@@ -54,7 +31,7 @@ const myloan = () => {
             </button>
           </div>
         </div>
-        <Modal
+        {/* <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
@@ -78,18 +55,16 @@ const myloan = () => {
                 id="input-group-1"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5"
                 placeholder=""
-                value={pin}
-                onChange={(e) => setPin(e.target.value)}
               />
             </div>
           </div>
         </CenterCont>
         </Box>
-      </Modal>
+      </Modal> */}
       </CenterCont>
       <Navbar></Navbar>
     </div>
-  );
-};
+  )
+}
 
-export default myloan;
+export default page;

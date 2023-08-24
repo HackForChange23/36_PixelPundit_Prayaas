@@ -5,6 +5,7 @@ import "../profile/profile.css";
 import { AiFillFileText } from "react-icons/ai";
 import { Select, Option } from "@material-tailwind/react";
 import Navbar from "@/components/Navbar";
+import Link from "next/link";
 
 const profile = () => {
   return (
@@ -46,12 +47,12 @@ const profile = () => {
                 <div>&gt;</div>
               </div>
             </a>
-            <a href="http://">
+            <Link href="/profile/my_loans">
             <div className="out mb-3">
               <div className="option_name">My Loan Application</div>
               <div>&gt;</div>
             </div>
-            </a>
+            </Link>
           </div>
           <button className="btn typo">LOGOUT</button>
           <div className="w-[95%] ml-[10px] mt-[5px] bg-black h-[2px]"></div>
