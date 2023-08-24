@@ -20,33 +20,45 @@ const contractSchema = new mongoose.Schema({
     required: false
   },
   farmer1:{
-    id:{
+    PrayaasId:{
         type: String,
         required: true
     },
     amount: {
         type: Number,
         required: true
+    },
+    KCC:{
+      type: String,
+      required: false
     }
   },
   farmer2: {
-    id:{
+    PrayaasId:{
         type: String,
         required: true
     },
     amount: {
         type: Number,
         required: true
+    },
+    KCC:{
+      type: String,
+      required: false
     }
   },
   farmer3:{
-    id:{
+    PrayaasId:{
         type: String,
-        required: true
+        required:false
     },
     amount: {
         type: Number,
-        required: true
+        required: false
+    },
+    KCC:{
+      type: String,
+      required: false
     }
   },
   fpo_prayasId: {
@@ -77,10 +89,6 @@ const contractSchema = new mongoose.Schema({
     type: String,
     required: false
   },
-  reason: {
-    type: String,
-    required: false
-  },
   duration: {
     type: String,     //In Months
     required: false
@@ -89,6 +97,10 @@ const contractSchema = new mongoose.Schema({
     type: Number,
     required: false,
     default: 4
+  },
+  requirement:{
+    type:String,
+    required: false
   }
 
 })

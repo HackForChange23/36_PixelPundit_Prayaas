@@ -3,7 +3,6 @@
 }
 
 body {
-  overflow-y: hidden;
   background: linear-gradient(180deg, #d4adfc 100%, #0c134f 100%);
 }
 .AppBar {
@@ -12,17 +11,11 @@ body {
   flex-shrink: 0;
   background-color: #0c134f;
 }
-.prayasfpo{
-  position:absolute;
-  left:500px;
-  height:50px;
-  width:500px;
-}
 
 .profile {
   position: relative;
   top: 10px;
-  left: 140px;
+  left: 100px;
   width: 80%;
   height: 190px;
   flex-shrink: 0;
@@ -151,8 +144,8 @@ background: #D4ADFC;
 
 .mclcard{
     position: absolute;
-    top:50px;
-    left:280px;
+    top:20px;
+    left:160px;
     width: 300px;
 height: 300px;
 border-radius: 25px;
@@ -161,12 +154,12 @@ box-shadow: 0px 4px 100px 0px rgba(212, 173, 252, 0.25) inset;
 flex-shrink: 0;
 }
 
-.mpcard{
+.contractcard{
     position: absolute;
-    top:50px;
-    right:480px;
+    top:100px;
+    left:160px;
     width: 300px;
-height: 300px;
+height: 150px;
 border-radius: 25px;
 background: #FFF;
 box-shadow: 0px 4px 100px 0px rgba(212, 173, 252, 0.25) inset;
@@ -185,28 +178,13 @@ border-radius: 20px;
 background: #D4ADFC;
 }
 
-.mclhead{
+.name,.quantity,.amount{
     color: #0C134F;
 text-align: center;
 font-family: Salsa;
-font-size: 30px;
+font-size: 20px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;    
 }
 
-.mplogo{
-  position: absolute;
-  top:60px;
-  left:70px;
-  height:150px;
-  width:150px;
-}
-
-.mcllogo{
-  position: absolute;
-  top:60px;
-  left:70px;
-  height:150px;
-  width:150px;
-}
