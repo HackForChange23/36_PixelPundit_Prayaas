@@ -28,37 +28,24 @@ function generateDynamicId(role) {
 
 
   async function loginController(req, res) {
-    const { contact_no, password } = req.body;
-  
     try {
-      let user = await Farmer.findOne({ contact_no }).exec();
-      if (!user) {
-        let user1 = await Manager.findOne({ contact_no }).exec();
-        if(!user1){
-          return res.status(404).send({ error: "Username not Found" });
-        }
-        else{
-          user = user1;
-        }
-        
+      const { contact_no, password } = req.body;
+      const wholeseller = await Farmer.findOne({ contact_no });
+      if (!wholeseller) {
+        return res.status(404).json({ success: false, msg: "Wholeseller not found" });
       }
-  
-      const passwordCheck = await bcrypt.compare(password, user.password);
-  
+      console.log(password);
+      console.log(wholeseller.password);
+      const passwordCheck = await bcrypt.compare(password, wholeseller.password);
       if (!passwordCheck) {
-        return res.status(400).send({ error: "Password does not match" });
+        return res.status(401).json({ success: false, msg: "Incorrect password" });
       }
-  
-      return res.status(200).send({
-        msg: "Login Successful...!",
-        username: user.username,
-      });
+      return res.status(200).json({ success: true, msg: "Login successful", data: wholeseller });
     } catch (error) {
       console.log("Error in login controller:", error);
-      return res.status(500).send({ error });
+      return res.status(500).json({ success: false, msg: "Internal server error" });
     }
   }
-
 const registerController = async (req, res) => {
     try {
         const { contact_no, name, password, adhaar_no, email, address, role, pin_code, photoPath, pan,pin } = req.body;
