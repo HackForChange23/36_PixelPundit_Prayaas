@@ -66,11 +66,12 @@ const getContracts = async() => {
     
 
 
-    const {_applicationId,_Loan_Approver_Prayas_id,_Total_Loan_Amount_Interest_Rate} = data;
-    console.log(_applicationId,_Loan_Approver_Prayas_id,_Total_Loan_Amount)
-
+    // const {_applicationId,_Loan_Approver_Prayas_id,_Total_Loan_Amount_Interest_Rate} = data;
+    // console.log(_applicationId,_Loan_Approver_Prayas_id,_Total_Loan_Amount)
+     
+    // _applicationId, _Loan_Approver_Prayas_id, _Total_Loan_Amount, _Prayas_id_Farmers, _Individual_Amount, _Interest_Rate
     const add_data = async () => {
-        const transaction = await contract.add_data(_applicationId, _Loan_Approver_Prayas_id, _Total_Loan_Amount, _Prayas_id_Farmers, _Individual_Amount, _Interest_Rate);
+        const transaction = await contract.add_data('12345', '123456', 100000, [1897,27895,34123,44865], [20000,20000,20000,40000], 8);
         await transaction.wait();
         window.alert('ADDED');
         console.log("DATA", transaction);
